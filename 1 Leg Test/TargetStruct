@@ -1,0 +1,22 @@
+#include <math.h>
+
+
+//####################
+// This class similar to the 'Frame' struct but just without denevit-hartenburg parameters
+//
+// The functions this class includes are:
+//   pos(): returns the positon of the object like this, "posx posy posz"
+//####################
+
+struct Target {
+
+  float x, y, z;
+
+
+  Target(float x, float y, float z){
+    this->x=x;
+    this->y=y;
+    this->z=z;
+    //x(x), y(y), z(z)
+  }
+};
