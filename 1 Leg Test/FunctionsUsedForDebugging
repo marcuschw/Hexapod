@@ -1,0 +1,98 @@
+float MATa[4][4];
+float MATb[4][4];
+
+extern Target target;
+extern Frame frame1;
+extern Frame frame2;
+extern Frame frame3;
+
+void updateA(){
+  float a[4][4] = {{1,2,3,4},{3,2,4.23,5},{3,5,2,4},{3,4,5,2.5}};
+  for (int i = 0; i < 4; i++){
+    for (int j = 0; j < 4; j++){
+      MATa[i][j] = a[i][j];
+    }
+  }
+}
+
+void updateB(){
+  float b[4][4] = {{1,2,3,4},{3,2,4.23,5},{3,5,2,4},{3,4,5,2.5}};
+  for (int i = 0; i < 4; i++){
+    for (int j = 0; j < 4; j++){
+      MATb[i][j] = b[i][j];
+    }
+  }
+}
+
+void printMat(float mat[4][4]){
+  for (int i = 0; i < 4; i++) {
+    for (int j = 0  ; j < 4; j++) {
+      Serial.print(mat[i][j]);
+      Serial.print("   ");
+  }
+  Serial.println("");
+}
+Serial.println("");
+}
+
+void printPosInfo(){
+  Serial.println("");
+  Serial.print("Target: ");
+  Serial.print("x=");
+  Serial.print(target.x);
+  Serial.print(" y=");
+  Serial.print(target.y);
+  Serial.print(" z=");
+  Serial.println(target.z);
+  
+  Serial.print("frame1: ");
+  Serial.print("x=");
+  Serial.print(frame1.posx);
+  Serial.print(" y=");
+  Serial.print(frame1.posy);
+  Serial.print(" z=");
+  Serial.print(frame1.posz);
+  Serial.print("  theta=");
+  Serial.println(frame1.theta);
+  
+  Serial.print("frame2: ");
+  Serial.print("x=");
+  Serial.print(frame2.posx);
+  Serial.print(" y=");
+  Serial.print(frame2.posy);
+  Serial.print(" z=");
+  Serial.print(frame2.posz);
+  Serial.print("  theta=");
+  Serial.println(frame2.theta);
+  
+  Serial.print("frame3: ");
+  Serial.print("x=");
+  Serial.print(frame3.posx);
+  Serial.print(" y=");
+  Serial.print(frame3.posy);
+  Serial.print(" z=");
+  Serial.print(frame3.posz);
+  Serial.print("  theta=");
+  Serial.println(frame3.theta);
+}
+
+ /*
+  * ===>>WANT TO OPTIMIZE??????===>>
+  * 
+  * 
+  * >>SPEED TEST>>
+  * 
+  float matA[4][4] = {{1,2,3,4},{3,2,4.23,5},{3,5,2,4},{3,4,5,2.5}};
+  float matB[4][4] = {{1,2,3,4},{1,2,3,4},{1,2,3,4},{1,2,3,4.69}};
+
+  float matC[4][4];
+
+  unsigned long startTime = micros();
+  for (int i = 0; i < 1000; i++){
+    updateA();
+    updateB();
+    matmul(MATa, MATb, matC);   <===== function goes here
+  } 
+  unsigned long endTime = micros();
+  Serial.println((endTime - startTime)/1000);
+  */
